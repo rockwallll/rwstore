@@ -1,0 +1,3 @@
+/* pages/detail_myc_de/detail_my_de.wxss */
+
+@import'../index/weui.wxss';

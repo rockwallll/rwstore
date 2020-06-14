@@ -1,0 +1,3 @@
+/* pages/create_sign/create_sign.wxss */
+
+@import'./weui.wxss';

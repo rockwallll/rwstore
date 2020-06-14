@@ -1,0 +1,56 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/detail_ingc/detail_ingc",
+        "pages/course/course",
+        "pages/create_sign/create_sign",
+        "pages/create_course/create_course",
+        "pages/register/register",
+        "pages/test/test",
+        "pages/detail_myc/detail_myc",
+        "pages/detail_myc_de/detail_myc_de"
+        
+    ],
+
+    "permission": {
+        "scope.userLocation": {
+          "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    },
+
+
+
+
+
+    
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#999",
+        "selectedColor": "#222",
+        "backgroundColor": "#f8f9fb",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "主页",
+                "iconPath": "assets/todos.png",
+                "selectedIconPath": "assets/todos-active.png"
+            },
+            {
+                "pagePath": "pages/create_sign/create_sign",
+                "text": "签到",
+                "iconPath": "assets/logs.png",
+                "selectedIconPath": "assets/logs-active.png"
+            }
+
+        ]
+    },
+    "sitemapLocation": "sitemap47.json"
+}
+

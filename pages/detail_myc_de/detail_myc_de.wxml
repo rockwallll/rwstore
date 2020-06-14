@@ -1,0 +1,61 @@
+<view class="weui-panel">
+    <view class="weui-panel__hd">本次签到详情</view>
+   
+        <view class="weui-cells__group weui-cells__group_form">
+            <view class="weui-cells">
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">{{name}}</label></view>
+                    <view class="weui-cell__bd">
+                        
+                        <text>{{name}}</text>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">签到地点</label></view>
+                    <view class="weui-cell__bd">
+  
+                        <text>A000</text>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">签到时间</label></view>
+                    <view class="weui-cell__bd">
+                        
+                        <text>19:00</text>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">签到时长</label></view>
+                    <view class="weui-cell__bd">
+                        
+                        <text>20分钟</text>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">定位信息</label></view>
+                    <view class="weui-cell__bd">
+                        <text>???</text>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">签到人数</label></view>
+                    <view class="weui-cell__bd">
+                        <text>35/50</text>
+                    </view>
+                </view>	
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">已签到名单</label></view>
+                    <view class="weui-cell__bd">
+                        <text>老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 </text>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">未签到名单</label></view>
+                    <view class="weui-cell__bd">
+                        <text>老李 老李 老李 老李 老李 老李 老李 老李 老李 老李 老李 </text>
+                    </view>
+                </view>						
+            </view>
+        </view>
+		
+</view>

@@ -1,0 +1,112 @@
+<!--pages/signin/signin.wxml-->
+
+
+
+<view class="weui-panel">
+    <view class="weui-panel__hd">本次签到详情</view>
+   
+        <view class="weui-cells__group weui-cells__group_form">
+            <view class="weui-cells">
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">课程名称</label></view>
+                    <view class="weui-cell__bd">
+                        
+                        <text>软件理论与工程</text>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">签到地点</label></view>
+                    <view class="weui-cell__bd">
+  
+                        <text>A000</text>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">签到时间</label></view>
+                    <view class="weui-cell__bd">
+                        
+                        <text>19:00</text>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">签到时长</label></view>
+                    <view class="weui-cell__bd">
+                        
+                        <text>20分钟</text>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">定位信息</label></view>
+                    <view class="weui-cell__bd">
+                        <text>???</text>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">签到人数</label></view>
+                    <view class="weui-cell__bd">
+                        <text>35/50</text>
+                    </view>
+                </view>	
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">已签到名单</label></view>
+                    <view class="weui-cell__bd">
+                        <text>老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 </text>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">未签到名单</label></view>
+                    <view class="weui-cell__bd">
+                        <text>老李 老李 老李 老李 老李 老李 老李 老李 老李 老李 老李 </text>
+                    </view>
+                </view>						
+            </view>
+        </view>
+		
+</view>
+
+<view class="weui-panel">
+    <view class="weui-panel__hd">签到历史记录</view>
+    <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text">
+            <h4 class="weui-media-box__title">2020/02/04</h4>
+            <view class="weui-media-box__desc">签到时间：11:30 签到地点：A115 签到情况：44/50</view>
+            <view class="weui-media-box__info">
+                <view class="weui-media-box__info__meta"> </view>
+                <view class="weui-media-box__info__meta">星期二</view>
+                <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">50人</view>
+            </view>
+        </view>
+        <view class="weui-media-box weui-media-box_text">
+            <h4 class="weui-media-box__title">2020/02/03</h4>
+            <view class="weui-media-box__desc">签到时间：11:30 签到地点：A115 签到情况：44/50</view>
+            <view class="weui-media-box__info">
+                <view class="weui-media-box__info__meta"> </view>
+                <view class="weui-media-box__info__meta">星期一</view>
+                <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">50人</view>
+            </view>
+        </view>
+
+                <view class="weui-media-box weui-media-box_text">
+            <h4 class="weui-media-box__title">2020/02/02</h4>
+            <view class="weui-media-box__desc">签到时间：11:30 签到地点：A115 签到情况：44/50</view>
+            <view class="weui-media-box__info">
+                <view class="weui-media-box__info__meta"> </view>
+                <view class="weui-media-box__info__meta">星期一</view>
+                <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">50人</view>
+            </view>
+        </view>
+                <view class="weui-media-box weui-media-box_text">
+            <h4 class="weui-media-box__title">2020/02/01</h4>
+            <view class="weui-media-box__desc">签到时间：11:30 签到地点：A115 签到情况：44/50</view>
+            <view class="weui-media-box__info">
+                <view class="weui-media-box__info__meta"> </view>
+                <view class="weui-media-box__info__meta">星期一</view>
+                <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">50人</view>
+            </view>
+        </view> 
+    </view>
+</view>
+
+
+
+

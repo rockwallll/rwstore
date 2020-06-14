@@ -1,0 +1,4 @@
+/* pages/create_course/create_course.wxss */
+
+@import'./weui.wxss';
+.button-sp-area{padding-top:15px;text-align:center}.weui-btn_mini{margin-right:4px}
