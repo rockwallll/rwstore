@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__hd">
+      <image src="/images/default_head_circle.png" style="margin-right: 15px;vertical-align: middle;width:80px; height:80px;"></image>
+    </view>
+    <view class="weui-cell__bd">
+      <view style='font-size:20px'>{{current_course['name']?current_course['name']:"课程名称"}}</view>
+      <view style='font-size:13px;color:#888888'>课程人数：{{current_course['teacher']['name']?current_course['teacher']['name']:"未知"}}</view>
+      <view style='font-size:13px;color:#888888'>上课教室：{{current_course['count']?current_course['count']:"未知"}}</view>
+      <view style='font-size:13px;color:#888888'>教师：{{current_course['id']?current_course['id']:"未知"}}</view>
+    </view>
+  </view>
+</view>
