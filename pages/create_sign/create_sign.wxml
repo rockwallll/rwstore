@@ -85,5 +85,3 @@
 </view>
 
 
-
-<view class="weui-cells__title">实时获取输入值：{{value1}}</view>

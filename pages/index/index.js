@@ -16,9 +16,7 @@ Page({
     }],
     signcourse: [{
       name: '软件理论与工程',loc:'C222',date:'周一',time:'19:00'
-    }, {
-      name: '算法分析',loc:'D555',date:'周五',time:'18:00'
-    }]  
+    }, ]  
   },
 
   
