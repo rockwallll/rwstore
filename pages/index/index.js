@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+
 const app = getApp()
 
 Page({
@@ -16,8 +17,11 @@ Page({
     }],
     signcourse: [{
       name: '软件理论与工程',loc:'C222',date:'周一',time:'19:00'
-    }, ]  
+    }, ] , 
+    banners:[],
+    recomends:[]
   },
+  
 
   
   mixins: [require('../../mixin/themeChanged')],
@@ -35,6 +39,12 @@ Page({
     })
   },
   onLoad: function () {
+    
+
+    
+
+
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"preloadBackgroundData": false,
@@ -84,6 +84,13 @@
 					"id": -1,
 					"name": "pages/test/test",
 					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/server/server",
+					"pathName": "pages/server/server",
 					"scene": null
 				}
 			]
