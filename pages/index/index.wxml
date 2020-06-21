@@ -15,18 +15,18 @@
 
 
 <view class="weui-panel">
-    <view class="weui-panel__hd">正在签到的课程</view>
+    <view class="weui-panel__hd">最近签到的课程</view>
     <view class="weui-panel__bd">
         <view class="weui-media-box weui-media-box_text">
-            <view wx:for="{{signcourse}}">
+            <view wx:for="{{signcourse00}}">
               <!-- 此处的URL需要修改 -->
               <navigator url="/pages/detail_ingc/detail_ingc" hover-class="navigator-hover">
-                <h4 class="weui-media-box__title">{{item.name}}</h4>
-                <view class="weui-media-box__desc">签到截止时间：11:30 签到地点：A115 签到情况：44/50</view>
+                <h4 class="weui-media-box__title">{{item.cname}}</h4>
+                <view class="weui-media-box__desc">签到开始时间：{{item.csigntime}} 签到地点：A115 已到：{{item.csigned}}</view>
                 <view class="weui-media-box__info">
-                    <view class="weui-media-box__info__meta">{{item.loc}}</view>
-                    <view class="weui-media-box__info__meta">{{item.date}}</view>
-                    <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.time}}</view>
+                    <view class="weui-media-box__info__meta">C222</view>
+                    <view class="weui-media-box__info__meta">周三</view>
+                    <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">18:00</view>
                 </view>
               </navigator>
             </view>           
@@ -42,14 +42,14 @@
 <view class="weui-panel">
     <view class="weui-panel__hd">我的课程</view>
     <view class="weui-panel__bd">      
-      <view wx:for="{{mycourse}}">
+      <view wx:for="{{mycourse00}}">
         <navigator url="/pages/detail_myc/detail_myc" hover-class="navigator-hover">
           <view class="weui-media-box weui-media-box_text">
-            <h4 class="weui-media-box__title">{{item.name}}</h4>
+            <h4 class="weui-media-box__title">{{item.cname}}</h4>
             <view class="weui-media-box__info">
-                <view class="weui-media-box__info__meta">{{item.loc}}</view>
-                <view class="weui-media-box__info__meta">{{item.date}}</view>
-                <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.time}}</view>
+                <view class="weui-media-box__info__meta">A201</view>
+                <view class="weui-media-box__info__meta">周二</view>
+                <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">16:00</view>
             </view>
           </view>
         </navigator>

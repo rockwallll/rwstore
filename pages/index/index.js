@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-
+import request from '../../service/network.js'
 const app = getApp()
 
 Page({
@@ -18,10 +18,49 @@ Page({
     signcourse: [{
       name: '软件理论与工程',loc:'C222',date:'周一',time:'19:00'
     }, ] , 
-    banners:[],
-    recomends:[]
+    mycourse00:[],
+    signcourse00:[]
   },
   
+
+
+
+  onLoad: function (options) {
+    request({
+      url:'http://10.21.232.109/findalljson'
+    }).then(res =>{
+      const mycourse00=res.data
+      this.setData({
+        mycourse00:mycourse00
+      })
+    })
+    request({
+      url:'http://10.21.232.109/findallcdjson'
+    }).then(res =>{
+      console.log(res)
+      const signcourse00=res.data
+      this.setData({
+        signcourse00:signcourse00
+      })
+    }),
+
+    
+    wx.request({
+      url: 'http://112.124.24.195',
+      data: Util.json2Form({
+         type:'slogin',name:'sss',password:'asds'
+      }),
+      method: "POST",
+      success:function(e){
+        console.log(e)
+      }
+}) 
+
+  },
+
+
+
+
 
   
   mixins: [require('../../mixin/themeChanged')],
@@ -38,40 +77,7 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
-    
-
-    
-
-
-
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
+  
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
