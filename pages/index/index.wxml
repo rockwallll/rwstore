@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<!-- <view class = "cursemessage" wx:for = "{{messagearr}}" wx:key = "index">
+<view wx:if = "{{item.snumber==stuphone}}">
+  <text class = "curseid">课程ID：{{item.cno}}\n</text>
+  <text class = "cursename">课程名称：{{item.cname}}\n</text>
+  </view>
+</view> -->
+<view class = "cursemessage" wx:for = "{{messagearr}}" wx:key = "index">
+  <view class = "curseid" >课程ID：{{item.cno}}\n</view>
+  <view class = "cursename">课程名称：{{item.cname}}\n</view>
+</view>
+
+<view>
+<text>{{getApp().globalData.stuphone}}</text>
+</view>

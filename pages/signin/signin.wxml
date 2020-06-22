@@ -1,0 +1,17 @@
+<!--pages/register/userlogin.wxml-->
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="pushLocation">
+    <view class="weui-cell__bd">获取签到位置</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access">({{pushL[size-1].csignposiL}},{{pushL[size-1].csignposiW}})</view>
+  </view>
+   <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="getLocation">
+    <view class="weui-cell__bd">获取当前位置</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access">({{got.longitude}},{{got.latitude}})</view>
+  </view>
+</view>
+ <button class="weui-btn" type="primary" disabled="{{!(flag1&&flag2)}}" bindtap='calculate'>测距</button>
+ <button class="weui-btn" type="primary" disabled="{{!(flagdist)}}" bindtap='caltime'>时间</button>
+<button class="weui-btn" type="primary" disabled="{{!(flagtime&&flagdist&&flagface)}}" bindtap='singin'>签到</button>
+<view class="motto">
+<text>{{motto}}</text>
+</view>
