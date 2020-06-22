@@ -1,4 +1,5 @@
 // pages/detail_myc/detail_myc.js
+import request from '../../service/network.js'
 Page({
 
   /**
@@ -10,14 +11,30 @@ Page({
     }, {
       name: '软件理论与工程',serial:'第二次',week:'周三',signtime:'19:00',signloc:'A221',signrate:'24/50'
     },
-    ] 
+    ] ,
+    coursename:[]
 
   },
+
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      coursename:options.coursename
+    }),
+    request({
+      url:'http://10.21.232.109/findalljson'
+    }).then(res =>{
+      const mycourse00=res.data
+      this.setData({
+        mycourse00:mycourse00
+      })
+    })
+
+    
 
   },
 

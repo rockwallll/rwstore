@@ -42,24 +42,22 @@ Page({
       this.setData({
         signcourse00:signcourse00
       })
-    }),
+    })
 
     
-    wx.request({
-      url: 'http://112.124.24.195',
-      data: Util.json2Form({
-         type:'slogin',name:'sss',password:'asds'
-      }),
-      method: "POST",
-      success:function(e){
-        console.log(e)
-      }
-}) 
+    
 
   },
 
 
-
+  loginBtnClick: function (e) {
+    console.log("用户名："+this.data.userName+" 密码：" +this.data.userPwd);
+    this.setData({
+      stuphone:this.data.userPwd
+    })
+    app.globaldata.stuphone = this.data.userPwd
+    console.log(app.globaldata.stuphone);
+  },
 
 
   

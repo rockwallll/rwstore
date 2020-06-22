@@ -1,4 +1,5 @@
 // pages/detail_myc_de/detail_my_de.js
+import request from '../../service/network.js'
 Page({
 
   /**

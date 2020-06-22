@@ -43,7 +43,7 @@
     <view class="weui-panel__hd">我的课程</view>
     <view class="weui-panel__bd">      
       <view wx:for="{{mycourse00}}">
-        <navigator url="/pages/detail_myc/detail_myc" hover-class="navigator-hover">
+        <navigator url="/pages/detail_myc/detail_myc?coursename={{item.cname}}" hover-class="navigator-hover">
           <view class="weui-media-box weui-media-box_text">
             <h4 class="weui-media-box__title">{{item.cname}}</h4>
             <view class="weui-media-box__info">

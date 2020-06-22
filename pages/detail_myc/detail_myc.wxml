@@ -5,7 +5,7 @@
     <view class="weui-panel__hd">签到历史记录</view>
     <view class="weui-panel__bd">
       <view wx:for="{{signhis}}">  
-        <navigator url="/pages/detail_myc_de/detail_myc_de" hover-class="navigator-hover">
+        <navigator url="/pages/detail_myc_de/detail_myc_de?" hover-class="navigator-hover">
           <view class="weui-media-box weui-media-box_text">           
               <h4 class="weui-media-box__title">{{item.serial}}</h4>
               <view class="weui-media-box__desc">签到发起时间：{{item.signtime}} 签到发起地点：{{item.signloc}} 签到情况：{{item.signrate}}</view>

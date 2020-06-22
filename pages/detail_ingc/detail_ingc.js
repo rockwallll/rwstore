@@ -1,4 +1,8 @@
+
 // pages/signin/signin.js
+
+import request from '../../service/network.js'
+
 Page({
 
     /**

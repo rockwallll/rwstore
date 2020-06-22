@@ -1,14 +1,11 @@
 
-
+import request from '../../service/network.js'
 
 Page({
     mixins: [require('../../mixin/themeChanged')],
     data: {
-        array1: ['软件理论与工程', '机器学习', '英语'],
-        array2: ['+86', '+80', '+84', '+87'],
         array3: ['软件理论与工程', '机器学习', '英语'],
-        value1: 0,
-        value2: 0,
+        a3:[],
         value3: 0,       
         arraylast: ['10分钟', '15分钟','20分钟',  '30分钟','40分钟', '60分钟', '90分钟', ],
         index: 0,
@@ -18,6 +15,7 @@ Page({
         loading: false,
         hideToast: false,
         hideLoading: false,
+        mycourse00:[],
         got:{
             latitude:0,
             longitude:0
@@ -38,6 +36,38 @@ Page({
         })
     },
 
+    //获取的课程信息需要数据处理
+    onLoad: function (options) {
+        request({
+          url:'http://10.21.232.109/findalljson'
+        }).then(res =>{ 
+          const mycourse00=res.data
+          this.setData({
+            mycourse00:mycourse00
+          })
+        })
+    },
+
+
+    // 发送签到信息失败
+    loginBtnClick: function (e) {
+        wx.request({
+            url: 'http://10.21.232.109/addstusign',
+            data: {
+               last:'arraylast'
+            },
+            method: "POST",
+            success:function(e){
+              console.log(e)
+            },fail:function(){
+              console.log('fail')
+            }
+          })
+    },
+
+
+
+
 
     bindTimeChange: function (e) {
         this.setData({
@@ -50,23 +80,14 @@ Page({
         })
     },
 
-
-    bindPicker1Change: function(e) {
-        this.setData({
-            value1: e.detail.value
-        })
-    },
-    bindPicker2Change: function(e) {
-        this.setData({
-            value2: e.detail.value
-        })
-    },
     bindPicker3Change: function(e) {
         this.setData({
             value3: e.detail.value
         })
+        
     },
     bindDateChange: function(e) {
+
         this.setData({
             date: e.detail.value,
         })
