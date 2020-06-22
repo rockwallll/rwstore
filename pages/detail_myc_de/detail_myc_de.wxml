@@ -46,15 +46,10 @@
                 <view class="weui-cell weui-cell_active">
                     <view class="weui-cell__hd"><label class="weui-label">已签到名单</label></view>
                     <view class="weui-cell__bd">
-                        <text>老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 </text>
+                        <text>张三</text>
                     </view>
                 </view>
-                <view class="weui-cell weui-cell_active">
-                    <view class="weui-cell__hd"><label class="weui-label">未签到名单</label></view>
-                    <view class="weui-cell__bd">
-                        <text>老李 老李 老李 老李 老李 老李 老李 老李 老李 老李 老李 </text>
-                    </view>
-                </view>						
+                					
             </view>
         </view>
 		

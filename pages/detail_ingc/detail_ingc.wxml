@@ -38,27 +38,22 @@
                 <view class="weui-cell weui-cell_active">
                     <view class="weui-cell__hd"><label class="weui-label">定位信息</label></view>
                     <view class="weui-cell__bd">
-                        <text>???</text>
+                        <text>120.20523，30.25727</text>
                     </view>
                 </view>
                 <view class="weui-cell weui-cell_active">
                     <view class="weui-cell__hd"><label class="weui-label">签到人数</label></view>
                     <view class="weui-cell__bd">
-                        <text>35/50</text>
+                        <text>0</text>
                     </view>
                 </view>	
                 <view class="weui-cell weui-cell_active">
                     <view class="weui-cell__hd"><label class="weui-label">已签到名单</label></view>
                     <view class="weui-cell__bd">
-                        <text>老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 老王 </text>
+                        <text>张三 </text>
                     </view>
                 </view>
-                <view class="weui-cell weui-cell_active">
-                    <view class="weui-cell__hd"><label class="weui-label">未签到名单</label></view>
-                    <view class="weui-cell__bd">
-                        <text>老李 老李 老李 老李 老李 老李 老李 老李 老李 老李 老李 </text>
-                    </view>
-                </view>						
+                					
             </view>
         </view>
 		
@@ -71,7 +66,7 @@
         <navigator url="/pages/detail_myc_de/detail_myc_de" hover-class="navigator-hover">
           <view class="weui-media-box weui-media-box_text">           
               <h4 class="weui-media-box__title">{{item.serial}}</h4>
-              <view class="weui-media-box__desc">签到发起时间：{{item.signtime}} 签到发起地点：{{item.signloc}} 签到情况：{{item.signrate}}</view>
+              <view class="weui-media-box__desc">签到发起时间：{{item.signtime}} 签到发起地点：{{item.signloc}} 签到人数：{{item.signrate}}</view>
           </view>
         </navigator>
       </view>  

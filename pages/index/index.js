@@ -49,7 +49,9 @@ Page({
 
   },
 
-
+  sx:function(){
+    this.onLoad()
+  },
   
 
   

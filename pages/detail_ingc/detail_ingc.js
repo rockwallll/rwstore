@@ -10,10 +10,8 @@ Page({
      */
     data: {
         signhis: [{
-            name: '软件理论与工程',serial:'第一次',week:'周一',signtime:'19:00',signloc:'A111',signrate:'44/50'
-          }, {
-            name: '软件理论与工程',serial:'第二次',week:'周三',signtime:'19:00',signloc:'A221',signrate:'24/50'
-          },
+            name: '软件理论与工程',serial:'第一次',week:'周一',signtime:'19:00',signloc:'A111',signrate:'44'
+          }, 
           ] 
          
 
