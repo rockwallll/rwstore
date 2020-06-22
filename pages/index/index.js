@@ -27,7 +27,7 @@ Page({
 
   onLoad: function (options) {
     request({
-      url:'http://10.21.232.109/findalljson'
+      url:'http://10.21.232.109/findallcoursesjson'
     }).then(res =>{
       console.log(res)
       const mycourse00=res.data
