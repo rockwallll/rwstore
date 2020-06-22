@@ -24,15 +24,27 @@ Page({
   onLoad: function (options) {
     this.setData({
       coursename:options.coursename
-    }),
-    request({
-      url:'http://10.21.232.109/findalljson'
-    }).then(res =>{
-      const mycourse00=res.data
-      this.setData({
-        mycourse00:mycourse00
-      })
     })
+
+    //发送课程名课程号，获取课程信息
+    // wx.request({
+    //   url: 'http://10.21.232.109/findallcdjson', //仅为示例，并非真实的接口地址
+    //   data: {
+    //     x: '',
+    //     y: ''
+    //   },      
+    //   success (res) {
+    //     this.setData({
+
+    //     })
+    //   },
+    //   fail(){
+        
+    //   }
+    // })
+
+    
+
 
     
 

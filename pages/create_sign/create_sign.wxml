@@ -30,9 +30,9 @@
                             <label class="weui-label">签到时间</label>
                         </view>
 						<view class="weui-cell__bd">
-							<picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+							
                				<view class="weui-select">{{time}}</view>
-            	</picker>
+            	
 						</view>
 					</view>
 					<view class="weui-cell weui-cell_active">
@@ -40,7 +40,7 @@
                             <label class="weui-label">签到时长</label>
                         </view>
 							<picker bindchange="bindLastChange" value="{{index}}" range="{{arraylast}}">
-                			<view class="weui-select">{{arraylast[last]}}</view>
+                			<view class="weui-select">{{arraylast[last]}}分钟</view>
            				</picker>
 					</view>
 					<view class="weui-cell weui-cell_active">

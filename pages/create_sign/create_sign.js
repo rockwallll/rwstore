@@ -1,5 +1,6 @@
 
 import request from '../../service/network.js'
+var util = require('../../utils/util.js');
 
 Page({
     mixins: [require('../../mixin/themeChanged')],
@@ -7,7 +8,7 @@ Page({
         array3: ['软件理论与工程', '机器学习', '英语'],
         a3:[],
         value3: 0,       
-        arraylast: ['10分钟', '15分钟','20分钟',  '30分钟','40分钟', '60分钟', '90分钟', ],
+        arraylast: ['10', '15','20',  '30','40', '60', '90', ],
         index: 0,
         time: '12:01',
         last:0,
@@ -21,9 +22,21 @@ Page({
             longitude:0
         },
         inputValue:'',
-        inputdata:'11'
+        inputdata:'11',
+        cno:'99',
+        cname:'sss',
+        csiname:'a',
+        csignposiL:'0',
+        csignposiW:'0',
+        signtimelast:'10'
+
+
         
     },
+
+
+
+
     getLocation:function(){
         type:'gcj02'
         wx.getLocation({
@@ -38,6 +51,11 @@ Page({
 
     //获取的课程信息需要数据处理
     onLoad: function (options) {
+        var time = util.formatTime(new Date());
+    // 再通过setData更改Page()里面的data，动态更新页面的数据
+        this.setData({
+        time: time
+        });
         request({
           url:'http://10.21.232.109/findalljson'
         }).then(res =>{ 
@@ -46,34 +64,44 @@ Page({
             mycourse00:mycourse00
           })
         })
+
     },
 
+    
 
     // 发送签到信息失败
     loginBtnClick: function (e) {
+        this.setData({
+            cname:this.data.array3[this.data.value3],
+            csigname:this.data.time,
+            csignposiL:this.data.got.longitude,
+            csignposiW:this.data.got.latitude,
+            signtimelast:this.data.arraylast[this.data.last]
+
+
+        })
         wx.request({
-            url: 'http://10.21.232.109/addstusign',
-            data: {
-               last:'arraylast'
-            },
-            method: "POST",
+            //url: 'http://10.21.232.109/addcsdsign?cno=0&cname='+ this.data.cname+'&csigname='+ this.data.csigname+'&csignposiL='+ this.data.csignposiL+'&csignposiW='+ this.data.csignposiW+'&signtimelast='+ this.data.signtimelast+'&csigned=00&czno=0&csigntime=0',
+            url:'http://10.21.232.109/addcsdsign?cno=0&cname='+ this.data.cname+'&csigname='+ this.data.csigname+'&csignposiL='+ this.data.csignposiL+'&csignposiW='+ this.data.csignposiW+'&signtimelast='+ this.data.signtimelast+'&csigned=02&czno=3&csigntime=1111111',
             success:function(e){
-              console.log(e)
+              console.log('success')
             },fail:function(){
               console.log('fail')
             }
           })
+        
     },
 
 
 
-
+    
 
     bindTimeChange: function (e) {
         this.setData({
             time: e.detail.value,
         })
     },
+
     bindLastChange: function (e) {
         this.setData({
             last: e.detail.value
@@ -82,12 +110,11 @@ Page({
 
     bindPicker3Change: function(e) {
         this.setData({
-            value3: e.detail.value
+            value3: e.detail.value           
         })
         
     },
     bindDateChange: function(e) {
-
         this.setData({
             date: e.detail.value,
         })
