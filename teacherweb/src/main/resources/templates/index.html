@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生选课管理系统</title>
+    <link rel="stylesheet" th:href="@{../static/css/main.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../static/css/button.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../static/css/add.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../static/css/update.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../static/css/examine.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../static/css/del.css}" type="text/css">
+    <script th:src="@{../static/js/add.js}" type="text/javascript"></script>
+    <script th:src="@{../static/js/update.js}" type="text/javascript"></script>
+    <script th:src="@{../static/js/examine.js}" type="text/javascript"></script>
+    <script th:src="@{../static/js/del.js}" type="text/javascript"></script>
+    <script th:src="@{../static/js/flip.js}" type="text/javascript"></script>
+	<!-- <script src="js/input.js" type="text/javascript"></script> -->
+    <script>
+        function enter() {
+            if (event.keyCode == 13) {
+                sumbit();
+            }
+        }
+    </script>
+	<!-- <script>
+	function get_data_type_change(get_data_type) {
+	    $(".material_cat_tr, .subject_id_tr").css('display', 'none');
+	    if(get_data_type == 14){
+	        $(".material_cat_tr").css('display', '');
+	    }else if(get_data_type == 15){
+	        $(".subject_id_tr").css('display', '');
+	    }
+	}
+	
+	//初始化
+	$(function(){
+	    get_data_type_change({$data.get_data_type});
+	});
+	</script> -->
+</head>
+
+<body onkeypress="enter()">
+<div id="total">
+    <div id="top">
+        <div class="headerLine">————————————————</div>
+        <div id="header">学生选课管理系统</div>
+			<!-- <p>
+				<a href="">上传文件<input type="file" /></a>  
+				<a href="">下载文件<input type="button" /></a>
+			</p> -->
+			
+		
+    </div>
+    
+    <div id="second">
+        <button id="add" onclick="add()">新增</button>
+        <button id="del" onclick="del()">删除</button>
+        <form method="POST" action="/refresh" enctype="multipart/form-data"id = "ref">
+            <button type="submit" class="btn btn-default btn-lg">
+                刷新
+            </button>
+        </form>
+    </div>
+
+   <div id="main">
+        <table cellspacing="0px" id="myTable">
+            <thead>
+            <tr>
+                <th class="col1"><input type="checkbox" onclick="checkAll(this)"/></th>
+                <th class="col2">序号</th>
+                <th class="col3">课程号</th>
+                <th class="col4">课程名</th>
+                <th class="col5">姓名</th>
+                <th class="col6">手机号</th>
+                <!-- <th class="col7">班级</th>
+                <th class="col8">所选课程</th>
+				<th class="col9">任课教师</th>
+                <th class="col10">操作</th> -->
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+		<form>
+			<select id="course" onchange="gradeChange()">
+                <option value="-1">--请选择--</option>
+				<option value="1">软件工程</option>
+				<option value="2">计算理论</option>
+				<option value="3">机器学习</option>
+				<option value="4">并行计算</option>
+			</select>
+		</form>
+		<form action="/upload" enctype="multipart/form-data" method="post">
+		    <input type="file" name="file" value="选择文件"/>
+		    <input type="submit" value="上传">
+		</form>
+		<div class="container-fluid center-block button_3">
+		    <form method="POST" action="/down" enctype="multipart/form-data">
+		        <button type="submit" class="btn btn-default btn-lg" onclick="dw()">
+		            下载文件
+		        </button>
+		    </form>
+
+		</div>
+    </div>
+
+    <div id="final">
+        <p>第</p>
+        <p id="pageNum">1</p>
+        <P>页，共</P>
+        <p id="nums">0</p>
+        <p>条，(每页显示10条)</p>
+        <button id="next" onclick="next()">下一页</button>
+        <button id="previous" onclick="previous()">上一页</button>
+    </div>
+
+</div>
+
+<div id="totalBackground"></div>
+
+
+<div id="addBlock">
+    <div id="addHeader">新增学生选课信息</div>
+    <div id="addMain">
+        <form method="POST" id="addMessageTable1" action="/addstu" enctype="multipart/form-data">
+            <table id="addMessageTable">
+            <tr>
+                <td class="addTableTd1">课程号</td>
+                <td class="addTableTd2"><input type="text" id="courseId1" name = "cno" /></td>
+            </tr>
+            <tr>
+                <td class="addTableTd1">课程名</td>
+                <td class="addTableTd2"><input type="text" id="course1" name = "cname"/></td>
+            </tr>
+            <tr>
+                <td class="addTableTd1">姓名</td>
+                <td class="addTableTd2"><input type="text" id="name1" name = "sname"/></td>
+            </tr>
+            <tr>
+                <td class="addTableTd1">手机号</td>
+                <td class="addTableTd2"><input type="text" id="phoneNum1" name = "snumber"/></td>
+            </tr>
+            </table>
+            <div style="text-align: right; height: 35px; padding-top: 5px; padding-right: 20px">
+                <button id="submit" type="submit">提交</button>
+            </div>
+
+        </form>
+        <div style="text-align: right; height: 35px; padding-top: 5px; padding-right: 20px">
+            <button id="addCancel" onclick="addCancel()">取消</button>
+        </div>
+    </div>
+
+</div>
+<div id="delBlock">
+    <div id="delHeader">待删除的学生信息</div>
+    <div id="delMain">
+        <form method="POST" id="delMessage1" action="/delstu" enctype="multipart/form-data">
+        <p>您确定删除以下同学的信息</p>
+        <p id="delMessage"></p>
+        </form>>
+    </div>
+    <div style="text-align: right; height: 35px; padding-top: 5px; padding-right: 20px">
+        <button id="confirm" onclick="confirm()">确认</button>
+        <button id="delCancel" onclick="delCancel()">取消</button>
+    </div>
+</div>
+<script th:inline="javascript">
+    var cnolist = new Array();
+    var cnamelist = new Array();
+    var snamelist = new Array();
+    var snumberlist = new Array();
+</script>
+<tr th:each="cource : ${courses}">
+    <script th:inline="javascript">
+        cnolist.push([[${cource.cno}]]);
+        cnamelist.push([[${cource.cname}]]);
+        snamelist.push([[${cource.sname}]]);
+        snumberlist.push([[${cource.snumber}]]);
+    </script>
+<script th:inline="javascript">
+
+        function gradeChange(){
+            var op = document.getElementById('course');
+            var now = op.options[op.selectedIndex].value;
+            //var sql = [[${cource.cno}]];
+            //console.log(sql)
+            //alert(op.options[op.selectedIndex].value);
+            for (var i = 0;i<cnolist.length;i++) {
+                if (now == cnolist[i]) {
+                    console.log(i);
+                }
+            }
+            for (var j = 0;j<cnolist.length;j++) {
+                if (now == cnolist[j]) {
+                    // 写入表单
+                    // 获取表
+                    //alert(op.options[op.selectedIndex].value);
+                    console.log(j);
+                    document.getElementById('addBlock').style.display = 'none';
+                    document.getElementById('totalBackground').style.display = 'none';
+                    var iTable = document.getElementById('myTable');
+                    // 获取输入值
+                    var courseId = cnolist[j];
+                    var course = cnamelist[j];
+                    var name = snamelist[j];
+                    var phoneNum = snumberlist[j];
+                    var nums = iTable.rows.length;
+
+                    // 创建一行tr
+                    var iTr = document.createElement('tr');
+
+                    // 隔行换色
+                    if (nums % 2 != 0) {
+                        iTr.className = 'mainTbodyTr1';
+                    } else {
+                        iTr.className = 'mainTbodyTr2';
+                    }
+
+                    // 将tr添加到table中
+                    iTable.appendChild(iTr);
+
+                    // 创建选择按钮
+                    var sel = document.createElement('input');
+                    sel.setAttribute('type', 'checkbox');
+                    sel.setAttribute('name', 'item');
+
+                    // 创建单元格td，并添加属性、内容
+                    var iTd1 = document.createElement('td');
+                    iTd1.className = "col1";
+                    iTd1.appendChild(sel);
+                    var iTd2 = document.createElement('td');
+                    iTd2.className = "col2";
+                    iTd2.appendChild(document.createTextNode(nums));
+                    var iTd3 = document.createElement('td');
+                    iTd3.className = "col3";
+                    iTd3.appendChild(document.createTextNode(courseId));
+                    var iTd4 = document.createElement('td');
+                    iTd4.className = "col4";
+                    iTd4.appendChild(document.createTextNode(course));
+                    var iTd5 = document.createElement('td');
+                    iTd5.className = "col5";
+                    iTd5.appendChild(document.createTextNode(name));
+                    var iTd6 = document.createElement('td');
+                    iTd6.className = "col6";
+                    iTd6.appendChild(document.createTextNode(phoneNum));
+                    // 将单元格添加到行
+                    iTr.appendChild(iTd1);
+                    iTr.appendChild(iTd2);
+                    iTr.appendChild(iTd3);
+                    iTr.appendChild(iTd4);
+                    iTr.appendChild(iTd5);
+                    iTr.appendChild(iTd6);
+                    var pageNum = document.getElementById('pageNum').innerText;
+                    pageNum = parseInt(pageNum);
+                    for (var i = 10 * pageNum + 1; i <= nums; i++) {
+                        iTable.rows[i].style.display = 'none';
+                    }
+                }
+            }
+        }
+
+</script>
+
+<script th:inline="javascript">
+    function checkAll(obj){
+        var status = obj.checked;
+        var items = document.getElementsByName('item');
+        var pageNum = document.getElementById('pageNum').innerText;
+        pageNum = parseInt(pageNum);
+        for (var i=(pageNum-1)*10; i<pageNum*10; i++) {
+            items[i].checked=status;
+        }
+    }
+
+    // 删除按钮
+    function del() {
+        // 打开删除框架
+        document.getElementById('delBlock').style.display = 'block';
+        document.getElementById('totalBackground').style.display = 'block';
+
+        var items = document.getElementsByName('item');
+        var message = [];
+        for(var j=0;j<items.length;j++){
+            if(items[j].checked) //如果item被选中
+            {
+                var m = items[j].parentNode.parentNode.cells[4].innerText;
+                message.push(m);
+            }
+        }
+
+        var delNode = document.getElementById('delMessage');
+        delNode.innerText = message.join('\t');
+    }
+
+    // 确认按钮
+    function confirm() {
+        // 关闭删除框架
+        var items = document.getElementsByName('item');
+        for(var j=0;j<items.length;j++) {
+            if (items[j].checked){
+                var m = items[j].parentNode.parentNode.cells[4].innerText;
+            }
+        }
+        window.location.href = "/delstu?sname="+m;
+        // document.getElementById('delBlock').style.display = 'none';
+        // document.getElementById('totalBackground').style.display = 'none';
+        //
+        // var items = document.getElementsByName('item');
+        // var items_num = 0;
+        // for(var j=0;j<items.length;j++){
+        //     if(items[j].checked)//如果item被选中
+        //     {
+        //         items_num += 1;
+        //         items[j].parentNode.parentNode.remove();
+        //         j--;
+        //     }
+        // }
+        //
+        //
+        // var iTable = document.getElementById('myTable');
+        // var iTrs = iTable.getElementsByTagName('tr');
+        // for (var i=1; i<iTrs.length; i++) {
+        //     if (i % 2 != 0)
+        //         iTrs[i].className = 'mainTbodyTr1';
+        //     else
+        //         iTrs[i].className = 'mainTbodyTr2';
+        //     var sort = iTrs[i].getElementsByTagName('td')[1];
+        //     sort.innerText = i;
+        // }
+        //
+        // var nums = iTrs.length - 1;
+        // document.getElementById('nums').innerText = nums;
+        // nums = parseInt(nums);
+        // var pageSum = Math.ceil(nums / 10);
+        // var pageNum = document.getElementById('pageNum').innerText;
+        // pageNum = parseInt(pageNum);
+        //
+        // if (pageNum <= pageSum) {
+        //     for (var i=(pageNum-1)*10+1; i<pageNum*10+1; i++) {
+        //         iTable.rows[i].style.display = 'table-row';
+        //     }
+        //     for (var i=1; i<(pageNum-1)*10+1; i++) {
+        //         iTable.rows[i].style.display = 'none';
+        //     }
+        //     for (var i=pageNum*10+1; i<nums+1; i++) {
+        //         iTable.rows[i].style.display = 'none';
+        //     }
+        // }
+        // if (pageNum > pageSum) {
+        //     for (var i=(pageNum-2)*10+1; i<nums+1; i++) {
+        //         iTable.rows[i].style.display = 'table-row';
+        //     }
+        //     for (var i=1; i<(pageNum-2)*10+1; i++) {
+        //         iTable.rows[i].style.display = 'none';
+        //     }
+        //     document.getElementById('pageNum').innerText = pageNum - 1;
+        // }
+    }
+
+    // 删除中的取消按钮
+    function delCancel() {
+        // 关闭删除框架
+        document.getElementById('delBlock').style.display = 'none';
+        document.getElementById('totalBackground').style.display = 'none';
+    }
+</script>
+<script>
+    function dw() {
+        alert("下载成功！");
+    }
+</script>
+</body>
+</html>
