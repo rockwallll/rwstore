@@ -1,0 +1,72 @@
+数据库密码：123456
+#学生信息表
+CREATE TABLE `student` (
+  `sno` varchar(48) not null,                #学生学号
+  `sname` varchar(48) not null,           #学生姓名
+  `sex` varchar(4) not null,                  #性别
+  `snumber` varchar(48) NOT NULL,     #电话号码
+  `sschool` varchar(48) not null,            #学生学校
+  `spassword` varchar(48) not null,        #学生密码
+
+   PRIMARY KEY (`snumber`),
+   CHECK (`sex` in ('男','女'))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#课程表
+create table `course`(
+    `cno` varchar(48) not null,                #课程号
+    `cname` varchar(48) not null,          #课程名
+    `sname` varchar(48) not null,           #学生姓名
+    `snumber`  varchar(48) not NULL,     #学生电话号
+     primary key(`cno`)
+    #primary key(`cno`,`snumber`),
+   
+    #foreign key(`snumber`) references student(`snumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#学生课程表
+create table `sc`(
+    `snumber` varchar(48) not null,            #学生电话
+    `cno` varchar(48) not null,                    #课程号
+    foreign key(`snumber`) references student(`snumber`),
+    foreign key(`cno`) references course(`cno`),
+    primary key(`snumber`,`cno`) 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#课程签到信息表
+create table `coursedign`(
+    `cno` varchar(48) not null,             #课程号
+    `cname` varchar(48) not null,         #课程名
+    `csigntime` TIMESTAMP null,         #发布签到时间
+    `csignposi` varchar(48) null,          #将经纬度转换成varchar类型，123，123
+    #`systemtime` TIMESTAMP null,     #签到系统时间
+    `signtimelast`  int(3) NULL,           #签到时长
+    `csigned` int(3) default 0,             #已经签到人数
+    `czno` varchar(48) null,                #软件工程下的第几次课，子课程号
+    foreign key(`cno`) references `course`(`cno`),
+    primary key(`cno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#学生签到信息表
+create table `studentsign`(
+    `cno` varchar(48) not null,              #课程号
+    `snumber` varchar(48) not null,      学生手机号#
+    `czno` varchar(48) null,                   #软件工程下的第几次课，子课程号
+    `stusigntime` TIMESTAMP null,        #学生签到时间
+    foreign key(`cno`) references `course`(`cno`),
+    foreign key(`snumber`) references `student`(`snumber`),
+    primary key(`cno`,`snumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#总计签到表
+create table `totalnumbersign`(
+    `cno` varchar(48) not null,              #课程号
+    `cname` varchar(48) not null,        #课程名
+    `sname` varchar(48) not null,        #学生名
+    `snumber` varchar(48) not null,     #学生手机号
+    `totalnumber`  INT(3) NULL,          #总计签到次数
+
+    PRIMARY KEY(`cno`,`snumber`),
+    foreign key(`cno`) references course(`cno`),
+    foreign key(`snumber`) references student(`snumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
