@@ -20,7 +20,7 @@
         <view class="weui-media-box weui-media-box_text">
             <view wx:for="{{signcourse00}}">
               <!-- 此处的URL需要修改 -->
-              <navigator url="/pages/detail_ingc/detail_ingc" hover-class="navigator-hover">
+              <navigator url="/pages/detail_ingc/detail_ingc?coursename={{item.cname}}?signtime={{item.csigntime}}" hover-class="navigator-hover">
                 <h4 class="weui-media-box__title">{{item.cname}}</h4>
                 <view class="weui-media-box__desc">签到开始时间：{{item.csigntime}} 签到地点：A115 已到：{{item.csigned}}</view>
                 <view class="weui-media-box__info">
@@ -43,7 +43,7 @@
     <view class="weui-panel__hd">我的课程</view>
     <view class="weui-panel__bd">      
       <view wx:for="{{mycourse00}}">
-        <navigator url="/pages/detail_myc/detail_myc?coursename={{item.cname}}" hover-class="navigator-hover">
+        <navigator url="/pages/detail_myc/detail_myc?coursename={{item.cna}}" hover-class="navigator-hover">
           <view class="weui-media-box weui-media-box_text">
             <h4 class="weui-media-box__title">{{item.cna}}</h4>
             <view class="weui-media-box__info">

@@ -10,9 +10,11 @@ Page({
      */
     data: {
         signhis: [{
-            name: '软件理论与工程',serial:'第一次',week:'周一',signtime:'19:00',signloc:'A111',signrate:'44'
+            name: '软件理论与工程',serial:'第一次',week:'周一',signtime:'19:00',signloc:'A111',signrate:'2'
           }, 
-          ] 
+        ] ,
+        coursename:[],
+        signtime:[]
          
 
     },
@@ -21,7 +23,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.setData({
+            coursename:options.coursename,
+            signtime:options.signtime 
+          })
+        
     },
 
     /**

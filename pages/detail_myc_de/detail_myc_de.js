@@ -7,15 +7,18 @@ Page({
    */
   data: {
     
-    name:'机器学习',loc:'A101',time:'18:00',last:'30分钟',gps:'???',signrate:'25/40'
+    name:'机器学习',loc:'A101',time:'18:00',last:'30分钟',gps:'???',signrate:'25/40',
+    coursename:[]
+  }, 
     
-  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      coursename:options.coursename
+    })
   },
 
   /**

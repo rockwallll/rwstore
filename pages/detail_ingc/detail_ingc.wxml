@@ -11,10 +11,10 @@
                     <view class="weui-cell__hd"><label class="weui-label">课程名称</label></view>
                     <view class="weui-cell__bd">
                         
-                        <text>软件理论与工程</text>
+                        <text>{{coursename}}</text>
                     </view>
                 </view>
-                <view class="weui-cell weui-cell_active">
+                <!-- <view class="weui-cell weui-cell_active">
                     <view class="weui-cell__hd"><label class="weui-label">签到地点</label></view>
                     <view class="weui-cell__bd">
   
@@ -32,9 +32,9 @@
                     <view class="weui-cell__hd"><label class="weui-label">签到时长</label></view>
                     <view class="weui-cell__bd">
                         
-                        <text>20分钟</text>
+                        <text>10分钟</text>
                     </view>
-                </view>
+                </view> -->
                 <view class="weui-cell weui-cell_active">
                     <view class="weui-cell__hd"><label class="weui-label">定位信息</label></view>
                     <view class="weui-cell__bd">
@@ -50,7 +50,7 @@
                 <view class="weui-cell weui-cell_active">
                     <view class="weui-cell__hd"><label class="weui-label">已签到名单</label></view>
                     <view class="weui-cell__bd">
-                        <text>张三 </text>
+                        <text></text>
                     </view>
                 </view>
                 					
@@ -63,7 +63,7 @@
     <view class="weui-panel__hd">签到历史记录</view>
     <view class="weui-panel__bd">
       <view wx:for="{{signhis}}">  
-        <navigator url="/pages/detail_myc_de/detail_myc_de" hover-class="navigator-hover">
+        <navigator url="/pages/detail_myc_de/detail_myc_de?coursename={{coursename}}" hover-class="navigator-hover">
           <view class="weui-media-box weui-media-box_text">           
               <h4 class="weui-media-box__title">{{item.serial}}</h4>
               <view class="weui-media-box__desc">签到发起时间：{{item.signtime}} 签到发起地点：{{item.signloc}} 签到人数：{{item.signrate}}</view>
