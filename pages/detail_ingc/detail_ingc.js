@@ -10,11 +10,12 @@ Page({
      */
     data: {
         signhis: [{
-            name: '软件理论与工程',serial:'第一次',week:'周一',signtime:'19:00',signloc:'A111',signrate:'2'
+            name: '软件理论与工程',serial:'第一次',week:'周一',signtime:'19:00',signloc:'A111',signrate:'1'
           }, 
         ] ,
         coursename:[],
-        signtime:[]
+        signtime:[],
+        csigned:[]
          
 
     },
@@ -25,7 +26,8 @@ Page({
     onLoad: function (options) {
         this.setData({
             coursename:options.coursename,
-            signtime:options.signtime 
+            signtime:options.signtime,
+            csigned:options.csigned
           })
         
     },

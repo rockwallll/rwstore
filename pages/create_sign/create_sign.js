@@ -82,12 +82,13 @@ Page({
         
         wx.request({
             //url: 'http://10.21.232.109/addcsdsign?cno=0&cname='+ this.data.cname+'&csigname='+ this.data.csigname+'&csignposiL='+ this.data.csignposiL+'&csignposiW='+ this.data.csignposiW+'&signtimelast='+ this.data.signtimelast+'&csigned=00&czno=0&csigntime=0',
-            url:'http://10.21.232.109/addcsdsign?cno=0&cname='+ this.data.cname+'&csignposiL='+ this.data.csignposiL+'&csignposiW='+ this.data.csignposiW+'&signtimelast='+ this.data.signtimelast+'&csigned=0&czno=3&csigntime='+ this.data.csigntime,
+            url:'http://10.21.232.109/addcsdsign?cno=0&cname='+ this.data.cname+'&csignposiL='+ this.data.csignposiL+'&csignposiW='+ this.data.csignposiW+'&signtimelast='+ this.data.signtimelast+'&csigned=1&czno=3&csigntime='+ this.data.csigntime,
             success:function(e){
               console.log('success')
             },fail:function(){
               console.log('fail')
             }
+            
           })
         
     },

@@ -20,9 +20,9 @@
         <view class="weui-media-box weui-media-box_text">
             <view wx:for="{{signcourse00}}">
               <!-- 此处的URL需要修改 -->
-              <navigator url="/pages/detail_ingc/detail_ingc?coursename={{item.cname}}?signtime={{item.csigntime}}" hover-class="navigator-hover">
+              <navigator url="/pages/detail_ingc/detail_ingc?coursename={{item.cname}}&signtime={{item.csigntime}}&csigned={{item.csigned}}" hover-class="navigator-hover">
                 <h4 class="weui-media-box__title">{{item.cname}}</h4>
-                <view class="weui-media-box__desc">签到开始时间：{{item.csigntime}} 签到地点：A115 已到：{{item.csigned}}</view>
+                <view class="weui-media-box__desc">签到开始时间：{{item.csigntime}} 签到地点：A000 已到：{{item.csigned}}</view>
                 <view class="weui-media-box__info">
                     <view class="weui-media-box__info__meta">C222</view>
                     <view class="weui-media-box__info__meta">周三</view>

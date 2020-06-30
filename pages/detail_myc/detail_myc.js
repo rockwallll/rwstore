@@ -7,7 +7,7 @@ Page({
    */
   data: {
     signhis: [{
-      name: '软件理论与工程',serial:'第一次',week:'周一',signtime:'2020/06/22 23:36:24',signloc:'A111',signrate:'2'
+      name: '软件理论与工程',serial:'第一次',week:'周一',signtime:'2020/06/22 23:36:24',signloc:'A111',signrate:'1'
     },
     ] ,
     coursename:[]
